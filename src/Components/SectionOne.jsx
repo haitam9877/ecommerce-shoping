@@ -15,6 +15,7 @@ export default function SectionOne() {
       sx={{
         background: `url('/hero_1.jpg')center/cover no-repeat`,
         height: 550,
+        marginTop: { xs: 5 },
       }}
     >
       <Grid
