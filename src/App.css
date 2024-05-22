@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Noto_Sans";
+  src: url("./fonts/Noto_Sans/NotoSans_Condensed-ExtraBold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Noto_Sans";
+  src: url("./fonts/Noto_Sans/NotoSans-Medium.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Noto_Sans";
+  src: url("./fonts/Noto_Sans/NotoSans-SemiBold.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Noto_Sans";
+  src: url("./fonts/Noto_Sans/NotoSans-Light.ttf");
+  font-weight: 100;
+}
+/* * {
+  font-family: "Noto_Sans";
+} */
+
+.logo span {
+  display: inline-block;
+  margin: 0 auto;
+  border: 2px solid #000;
+  padding: 5px 20px;
+}
+
+.navbar-menu li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+.seach {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.seach input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  display: inline-block;
+  align-self: center;
+  font-size: 17px;
+}
+
+.seach input::placeholder {
+  transition: 0.5s all;
+
+  padding-left: 10px;
+}
+
+.seach input:focus::placeholder {
+  padding-left: 0;
+}
+
+/* App.css */
+.slider-container {
+  position: relative;
+  margin: 60px 0; /* To make space for arrows */
+}
+
+.arrows-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.custom-arrow {
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.custom-prev,
+.custom-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-arrow.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.slick-prev,
+.slick-next {
+  display: none !important; /* Hide default arrows */
+}
+
+.slick-list {
+  padding: 20px 0 !important;
+}
+
+.haitam {
+  position: relative;
+  display: inline-block;
+}
+.haitam::before {
+  content: "\f004";
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  margin: 0 15px;
+}
