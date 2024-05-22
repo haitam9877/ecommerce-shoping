@@ -45,7 +45,7 @@ export default function Navbar() {
       >
         <Box
           sx={{
-            flex: "0 0 100%",
+            width: "100%",
             display: "flex",
             flexWrap: { xs: "wrap", md: "nowrap" },
             alignItems: "center",
@@ -55,7 +55,7 @@ export default function Navbar() {
             className="seach"
             sx={{
               display: "flex",
-              flex: { xs: "1 0 auto", md: "0 1 50%" },
+              flex: { xs: "1", md: "0 1 50%" },
               order: { xs: 2, md: 1 },
             }}
           >
@@ -120,6 +120,7 @@ export default function Navbar() {
   );
 }
 
+// eslint-disable-next-line react/prop-types
 export const Logo = ({ styleds }) => {
   const theme = useTheme();
 

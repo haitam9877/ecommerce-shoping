@@ -1,4 +1,4 @@
-import { Button, styled, useTheme } from "@mui/material";
+import { Box, Button, styled } from "@mui/material";
 import { createContext, useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -6,10 +6,17 @@ import { Link } from "react-router-dom";
 const StyledLinkContext = createContext();
 
 // إنشاء موفر الـ Context
+// eslint-disable-next-line react/prop-types
 export const StyledLinkProvider = ({ children }) => {
+  const Item = styled(Box)(({ theme }) => ({
+    padding: theme.spacing(1),
+    display: "flex",
+    color: theme.palette.primary.light,
+  }));
+
   // إنشاء المكون StyledButton باستخدام الثيم
   const ButtonStyled = styled(Button)(({ theme, sx }) => ({
-    color: "wheat",
+    color: "white",
     padding: "10px 20px",
     background: theme.palette.primary.light,
     letterSpacing: 3,
@@ -26,10 +33,11 @@ export const StyledLinkProvider = ({ children }) => {
 
   // إنشاء المكون StyledLink باستخدام الثيم
   const StyledLink = styled(Link)(({ theme, style }) => ({
+    fontFamily: theme.typography.fontFamily[1],
     transition: "0.3s all",
     color: theme.palette.secondary.dark,
     textDecoration: "none",
-    fontFamily: theme.typography.fontFamily,
+
     "&:hover": {
       color: theme.palette.primary.light,
     },
@@ -40,13 +48,14 @@ export const StyledLinkProvider = ({ children }) => {
   }));
 
   return (
-    <StyledLinkContext.Provider value={{ StyledLink, ButtonStyled }}>
+    <StyledLinkContext.Provider value={{ Item, StyledLink, ButtonStyled }}>
       {children}
     </StyledLinkContext.Provider>
   );
 };
 
 // هوك مخصص لاستخدام الـ Context
+// eslint-disable-next-line react-refresh/only-export-components
 export const useStyledLink = () => {
   return useContext(StyledLinkContext);
 };

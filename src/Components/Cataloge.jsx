@@ -1,19 +1,6 @@
-import {
-  Box,
-  Button,
-  Container,
-  ImageList,
-  Paper,
-  Typography,
-  styled,
-  useTheme,
-} from "@mui/material";
+/* eslint-disable react/prop-types */
+import { Box, Container, Typography, styled, useTheme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import RefreshIcon from "@mui/icons-material/Refresh";
-import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-import { Image } from "@mui/icons-material";
 
 const Item = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -74,7 +61,15 @@ const CardImage = ({ img, title }) => {
                 color: theme.palette.primary.contrastText,
               }}
             >
-              <Typography component="span">COLLECTIONS</Typography>
+              <Typography
+                component="span"
+                color="white"
+                fontSize={1}
+                fontFamily={theme.typography.fontFamily[0]}
+                letterSpacing={3}
+              >
+                COLLECTIONS
+              </Typography>
               <Typography variant="h4">{title}</Typography>
             </Box>
           </Box>

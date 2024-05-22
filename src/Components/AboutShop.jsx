@@ -1,25 +1,15 @@
-import {
-  Box,
-  Container,
-  Paper,
-  Typography,
-  styled,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-
-const Item = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(1),
-  display: "flex",
-  color: theme.palette.primary.light,
-}));
+import { useStyledLink } from "../Contexts/StyledContext";
 
 export default function AboutShop() {
   const theme = useTheme();
+
+  const { Item } = useStyledLink();
   return (
     <Container maxWidth="lg" sx={{ padding: "40px 0" }}>
       <Grid container spacing={2}>

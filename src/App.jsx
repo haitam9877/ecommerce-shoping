@@ -4,24 +4,27 @@ import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
-import { deepPurple, green, grey, indigo, purple } from "@mui/material/colors";
+import { grey, indigo } from "@mui/material/colors";
 import { StyledLinkProvider } from "./Contexts/StyledContext";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "Noto_Sans",
+    fontFamily: ["Bebas Neue", "Noto_Sans"],
     h2: {
       fontWeight: 800,
       letterSpacing: 2,
+      fontFamily: "Noto_Sans",
     },
     body1: {
       lineHeight: "2em",
       fontSize: 14,
       color: grey[500],
+      fontFamily: "Noto_Sans",
     },
     body2: {
       fontSize: 16,
       fontWeight: "bold",
+      fontFamily: "Noto_Sans",
     },
   },
   palette: {
@@ -31,8 +34,8 @@ const theme = createTheme({
       contrastText: "#fff",
     },
     secondary: {
-      main: grey[900],
-      dark: "#121212",
+      main: grey[500],
+      dark: grey[700],
     },
     boxLight: "#f8f9fa",
   },
