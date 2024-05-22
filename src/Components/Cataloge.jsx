@@ -64,9 +64,11 @@ const CardImage = ({ img, title }) => {
               <Typography
                 component="span"
                 color="white"
-                fontSize={1}
-                fontFamily={theme.typography.fontFamily[0]}
-                letterSpacing={3}
+                sx={{
+                  fontFamily: theme.typography.fontFamily[0],
+                  letterSpacing: 5,
+                  fontSize: "12.5px",
+                }}
               >
                 COLLECTIONS
               </Typography>

@@ -55,12 +55,12 @@ export default function Navbar() {
             className="seach"
             sx={{
               display: "flex",
-              flex: { xs: "1", md: "0 1 50%" },
+              flex: { xs: "0 1 50%", md: "0 1 50%" },
               order: { xs: 2, md: 1 },
             }}
           >
             <SearchIcon />
-            <input type="text" placeholder="Search" />
+            <input type="text" placeholder="Search" style={{ width: "100%" }} />
           </Box>
 
           <Logo
@@ -75,12 +75,12 @@ export default function Navbar() {
             className="add"
             sx={{
               display: "flex",
-              flex: { xs: "0 1 auto", md: "0 1 50%" },
+              flex: { xs: "0 1 50%", md: "0 1 50%" },
               justifyContent: "end",
               order: { xs: 3, md: 3 },
             }}
           >
-            <div
+            <Box
               style={{
                 width: "100px",
                 display: "flex",
@@ -110,7 +110,7 @@ export default function Navbar() {
                   }}
                 />
               </IconPersonIcon>
-            </div>
+            </Box>
           </Box>
         </Box>
       </Container>
