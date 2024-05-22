@@ -68,6 +68,7 @@ export default function Navbar() {
               display: "flex",
               flex: { xs: "1 0 100%", md: "0 1 50%" },
               order: { xs: 1, md: 2 },
+              marginBottom: { xs: 3 },
             }}
           />
 
