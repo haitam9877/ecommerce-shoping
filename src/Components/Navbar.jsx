@@ -115,7 +115,7 @@ export default function Navbar() {
           </Box>
         </Box>
       </Container>
-      <Divider style={{ margin: "20px 0" }} />
+      <Divider sx={{ margin: "20px 0", display: { xs: "none" } }} />
       <Drawere setShowDrawar={setShowDrawar} showDrawar={showDrawar} />
     </nav>
   );
