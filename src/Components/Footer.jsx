@@ -197,7 +197,6 @@ const ContactInfo = ({ icon, body }) => {
         display: "flex",
         marginBottom: 1.5,
         color: theme.palette.primary.light,
-        textAlign: "center",
       }}
     >
       {icon}
