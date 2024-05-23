@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import { grey, indigo } from "@mui/material/colors";
-import { StyledLinkProvider } from "./Contexts/StyledContext";
+import { StyledProvider } from "./Contexts/StyledContext";
 
 const theme = createTheme({
   typography: {
@@ -44,7 +44,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <StyledLinkProvider>
+      <StyledProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -55,7 +55,7 @@ function App() {
           <Route path="/contact" element={<h1>hfh</h1>} />
         </Routes>
         <Footer />
-      </StyledLinkProvider>
+      </StyledProvider>
     </ThemeProvider>
   );
 }

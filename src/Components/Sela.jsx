@@ -1,31 +1,10 @@
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  Typography,
-  styled,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { useStyledLink } from "../Contexts/StyledContext";
-
-const DividerPage = styled(Divider)(({ theme }) => ({
-  background: theme.palette.primary.light,
-  width: 43,
-  padding: "1.5px 0",
-  margin: "20px auto",
-}));
-
-const Item = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(1),
-  display: "flex",
-  color: theme.palette.primary.light,
-}));
+import { useStyled } from "../Contexts/StyledContext";
 
 export default function Sela() {
   const theme = useTheme();
-  const { ButtonStyled } = useStyledLink();
+  const { ButtonStyled, DividerPage } = useStyled();
 
   return (
     <Box

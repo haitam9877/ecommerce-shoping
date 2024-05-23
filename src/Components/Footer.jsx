@@ -2,27 +2,23 @@ import {
   Box,
   Container,
   Divider,
-  Input,
-  Link,
   List,
   Typography,
   styled,
   useTheme,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { useStyledLink } from "../Contexts/StyledContext";
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../App.css";
+import { useStyled } from "../Contexts/StyledContext";
 export default function Footer() {
   const theme = useTheme();
 
-  const { StyledLink, ButtonStyled } = useStyledLink();
+  const { StyledLink, ButtonStyled } = useStyled();
 
   const Boxs = styled(StyledLink)(({ theme }) => ({
     color: theme.palette.secondary.main,
@@ -163,6 +159,7 @@ export default function Footer() {
   );
 }
 
+// eslint-disable-next-line react/prop-types
 const BoxFooter = ({ title, children }) => {
   return (
     <>
@@ -172,6 +169,7 @@ const BoxFooter = ({ title, children }) => {
   );
 };
 
+// eslint-disable-next-line react/prop-types
 const ListFooter = ({ children, style }) => {
   return (
     <List
@@ -189,6 +187,7 @@ const ListFooter = ({ children, style }) => {
   );
 };
 
+// eslint-disable-next-line react/prop-types
 const ContactInfo = ({ icon, body }) => {
   const theme = useTheme();
   return (

@@ -66,54 +66,6 @@
   padding-left: 0;
 }
 
-/* App.css */
-.slider-container {
-  position: relative;
-  margin: 60px 0; /* To make space for arrows */
-}
-
-.arrows-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.custom-arrow {
-  border: none;
-  border-radius: 50%;
-
-  cursor: pointer;
-  padding: 10px;
-  text-align: center;
-  font-size: 24px;
-  margin: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s;
-}
-
-.custom-prev,
-.custom-next {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-arrow.disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.slick-prev,
-.slick-next {
-  display: none !important; /* Hide default arrows */
-}
-
-.slick-list {
-  padding: 20px 0 !important;
-}
-
 .haitam {
   position: relative;
   display: inline-block;
@@ -123,4 +75,33 @@
   display: inline-block;
   font-family: "Font Awesome 5 Free";
   margin: 0 15px;
+}
+
+.slider-container {
+  position: relative;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  bottom: 10px; /* Place buttons at the bottom */
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-button-prev {
+  left: 10px; /* Distance from the left */
+}
+
+.swiper-button-next {
+  right: 10px; /* Distance from the right */
+}
+
+.transparent {
+  opacity: 0.5; /* Transparency level */
+  pointer-events: none; /* Disable interaction */
+}
+
+.swiper-wrapper {
+  padding: 10px 0;
 }

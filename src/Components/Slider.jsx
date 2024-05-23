@@ -1,151 +1,121 @@
-import React, { useRef, useState, useEffect } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import "../App.css";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  useTheme,
-} from "@mui/material";
 
-const CustomNextArrow = ({ onClick, isDisabled }) => {
-  return (
-    <div
-      className={`custom-arrow custom-next ${isDisabled ? "disabled" : ""}`}
-      onClick={onClick}
-      style={{
-        pointerEvents: isDisabled ? "none" : "auto",
-        opacity: isDisabled ? 0.5 : 1,
-      }}
-    >
-      <ArrowForwardIcon />
-    </div>
-  );
-};
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
-const CustomPrevArrow = ({ onClick, isDisabled }) => {
-  return (
-    <div
-      className={`custom-arrow custom-prev ${isDisabled ? "disabled" : ""}`}
-      onClick={onClick}
-      style={{
-        pointerEvents: isDisabled ? "none" : "auto",
-        opacity: isDisabled ? 0.5 : 1,
-      }}
-    >
-      <ArrowBackIcon />
-    </div>
-  );
-};
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 export default function CustomSlider() {
-  const sliderRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [totalSlides, setTotalSlides] = useState(0);
+  const [isLastSlide, setIsLastSlide] = React.useState(false);
+  const [isFirstSlide, setIsFirstSlide] = React.useState(true);
 
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
-    afterChange: (current) => {
-      setCurrentSlide(current);
-    },
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  useEffect(() => {
-    const updateTotalSlides = () => {
-      const total = Math.ceil(
-        sliderRef.current.props.children.length / settings.slidesToShow
-      );
-      setTotalSlides(total);
-    };
-
-    updateTotalSlides();
-
-    window.addEventListener("resize", updateTotalSlides);
-    return () => window.removeEventListener("resize", updateTotalSlides);
-  }, [settings.slidesToShow]);
-
-  const handlePrev = () => {
-    sliderRef.current.slickPrev();
-  };
-
-  const handleNext = () => {
-    sliderRef.current.slickNext();
+  const handleSlideChange = (swiper) => {
+    setIsLastSlide(swiper.isEnd);
+    setIsFirstSlide(swiper.isBeginning);
   };
 
   return (
     <div className="slider-container">
-      <Slider ref={sliderRef} {...settings}>
-        <CardBox
-          image="/Prodact/cloth_1.jpg"
-          title="Tank Top"
-          body="Prodact is Good"
-          pris="50"
-        />
-        <CardBox
-          image="/Prodact/shoe_1.jpg"
-          title="Tank Top"
-          body="Prodact is Good"
-          pris="50"
-        />
-        <CardBox
-          image="/Prodact/cloth_3.jpg"
-          title="Tank Top"
-          body="Prodact is Good"
-          pris="50"
-        />
-        <CardBox
-          image="/Prodact/cloth_1.jpg"
-          title="Tank Top"
-          body="Prodact is Good"
-          pris="50"
-        />
-        <CardBox
-          image="/Prodact/shoe_1.jpg"
-          title="Tank Top"
-          body="Prodact is Good"
-          pris="50"
-        />
-      </Slider>
-      <div className="arrows-container">
-        <CustomPrevArrow onClick={handlePrev} isDisabled={currentSlide === 0} />
-        <CustomNextArrow
-          onClick={handleNext}
-          isDisabled={currentSlide >= totalSlides - 1}
-        />
-      </div>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={30}
+        slidesPerView={3}
+        slidesPerGroup={1}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        onSlideChange={(swiper) => handleSlideChange(swiper)}
+        breakpoints={{
+          1040: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          800: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+        }}
+      >
+        <SwiperSlide>
+          <CardBox
+            image="/Prodact/cloth_1.jpg"
+            title="Tank Top"
+            body="Prodact is Good"
+            pris="50"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardBox
+            image="/Prodact/shoe_1.jpg"
+            title="Tank Top"
+            body="Prodact is Good"
+            pris="50"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardBox
+            image="/Prodact/cloth_3.jpg"
+            title="Tank Top"
+            body="Prodact is Good"
+            pris="50"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardBox
+            image="/Prodact/cloth_1.jpg"
+            title="Tank Top"
+            body="Prodact is Good"
+            pris="50"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardBox
+            image="/Prodact/shoe_1.jpg"
+            title="Tank Top"
+            body="Prodact is Good"
+            pris="50"
+          />
+        </SwiperSlide>
+        {/* يمكنك إضافة المزيد من الشرائح هنا */}
+      </Swiper>
+
+      <Box sx={{ position: "relative", padding: "30px 0" }}>
+        <Box
+          sx={{
+            left: "40%",
+            "&:after": {
+              display: "none",
+            },
+          }}
+          className={`swiper-button-prev ${isFirstSlide ? "transparent" : ""}`}
+        >
+          <ArrowBackIcon />
+        </Box>
+        <Box
+          sx={{
+            right: "40%",
+            "&:after": {
+              display: "none",
+            },
+          }}
+          className={`swiper-button-next ${isLastSlide ? "transparent" : ""}`}
+        >
+          <ArrowForwardIcon />
+        </Box>
+      </Box>
     </div>
   );
 }
@@ -155,7 +125,7 @@ const CardBox = ({ image, title, body, pris }) => {
   return (
     <Card
       sx={{
-        maxWidth: 360,
+        maxWidth: "100%",
         paddingBottom: "50px",
         boxShadow: theme.shadows[1],
       }}

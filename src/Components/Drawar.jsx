@@ -1,34 +1,20 @@
-import {
-  Box,
-  Container,
-  Hidden,
-  List,
-  styled,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, Hidden, List } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Logo } from "./Navbar";
-import { useStyledLink } from "../Contexts/StyledContext";
+import { useStyled } from "../Contexts/StyledContext";
 
 const drawerWidth = 280;
 
+// eslint-disable-next-line react/prop-types
 export default function Drawere({ showDrawar, setShowDrawar }) {
-  const theme = useTheme();
-
+  // eslint-disable-next-line no-unused-vars
   const [isClosing, setIsClosing] = useState(false);
 
   const closeing = () => {
     setIsClosing(true);
     setShowDrawar(false);
   };
-  // const ListUl = styled(List)({
-  //   display: { xs: "block", md: "flex" },
-  //   listStyle: "none",
-  //   justifyContent: "center",
-  // });
 
   const [isActive, setIsActive] = useState("");
   const linkNavbar = [
@@ -40,21 +26,7 @@ export default function Drawere({ showDrawar, setShowDrawar }) {
     "contact",
   ];
 
-  // const StyledLink = styled(Link)({
-  //   transition: ".3s all",
-  //   color: theme.palette.secondary.dark,
-  //   textDecoration: "none",
-  //   fontFamily: theme.typography.fontFamily,
-
-  //   "&:hover": {
-  //     color: theme.palette.primary.light,
-  //   },
-  //   "&.active": {
-  //     color: theme.palette.primary.light,
-  //   },
-  // });
-
-  const { StyledLink } = useStyledLink();
+  const { StyledLink } = useStyled();
 
   const listLinkNavbar = linkNavbar.map((link, index) => {
     return (
@@ -80,8 +52,6 @@ export default function Drawere({ showDrawar, setShowDrawar }) {
       </li>
     );
   });
-
-  const isLargeScrren = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Container

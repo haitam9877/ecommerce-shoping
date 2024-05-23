@@ -1,23 +1,11 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Typography,
-  styled,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 
 import CustomSlider from "./Slider";
-
-const DividerPage = styled(Divider)(({ theme }) => ({
-  background: theme.palette.primary.light,
-  width: 43,
-  padding: "1.5px 0",
-  margin: "20px auto",
-}));
+import { useStyled } from "../Contexts/StyledContext";
 
 export default function Products() {
   const theme = useTheme();
+  const { DividerPage } = useStyled();
   return (
     <Box
       sx={{

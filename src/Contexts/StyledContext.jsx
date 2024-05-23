@@ -1,17 +1,24 @@
-import { Box, Button, styled } from "@mui/material";
+import { Box, Button, Divider, styled } from "@mui/material";
 import { createContext, useContext } from "react";
 import { Link } from "react-router-dom";
 
 // إنشاء الـ Context
-const StyledLinkContext = createContext();
+const StyledContext = createContext();
 
 // إنشاء موفر الـ Context
 // eslint-disable-next-line react/prop-types
-export const StyledLinkProvider = ({ children }) => {
+export const StyledProvider = ({ children }) => {
   const Item = styled(Box)(({ theme }) => ({
     padding: theme.spacing(1),
     display: "flex",
     color: theme.palette.primary.light,
+  }));
+
+  const DividerPage = styled(Divider)(({ theme }) => ({
+    background: theme.palette.primary.light,
+    width: 43,
+    padding: "1.5px 0",
+    margin: "20px auto",
   }));
 
   // إنشاء المكون StyledButton باستخدام الثيم
@@ -48,14 +55,16 @@ export const StyledLinkProvider = ({ children }) => {
   }));
 
   return (
-    <StyledLinkContext.Provider value={{ Item, StyledLink, ButtonStyled }}>
+    <StyledContext.Provider
+      value={{ DividerPage, Item, StyledLink, ButtonStyled }}
+    >
       {children}
-    </StyledLinkContext.Provider>
+    </StyledContext.Provider>
   );
 };
 
 // هوك مخصص لاستخدام الـ Context
 // eslint-disable-next-line react-refresh/only-export-components
-export const useStyledLink = () => {
-  return useContext(StyledLinkContext);
+export const useStyled = () => {
+  return useContext(StyledContext);
 };
