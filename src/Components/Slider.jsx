@@ -120,6 +120,7 @@ export default function CustomSlider() {
   );
 }
 
+// eslint-disable-next-line react/prop-types
 const CardBox = ({ image, title, body, pris }) => {
   const theme = useTheme();
   return (
