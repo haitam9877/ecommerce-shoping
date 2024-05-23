@@ -17,7 +17,7 @@ export const StyledProvider = ({ children }) => {
   const DividerPage = styled(Divider)(({ theme }) => ({
     background: theme.palette.primary.light,
     width: 43,
-    padding: "1.5px 0",
+    padding: "1px 0",
     margin: "20px auto",
   }));
 
@@ -39,7 +39,7 @@ export const StyledProvider = ({ children }) => {
   }));
 
   // إنشاء المكون StyledLink باستخدام الثيم
-  const StyledLink = styled(Link)(({ theme, style }) => ({
+  const StyledLink = styled(Link)(({ theme, style, to }) => ({
     fontFamily: theme.typography.fontFamily[1],
     transition: "0.3s all",
     color: theme.palette.secondary.dark,
@@ -52,6 +52,7 @@ export const StyledProvider = ({ children }) => {
       color: theme.palette.primary.light,
     },
     style,
+    to,
   }));
 
   return (

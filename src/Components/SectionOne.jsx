@@ -14,7 +14,7 @@ export default function SectionOne() {
       sx={{
         background: `url('/hero_1.jpg')center/cover no-repeat`,
         height: 550,
-        marginTop: { xs: 5 },
+        marginTop: 1,
         display: "flex",
         alignItems: { xs: "start", md: "center" },
       }}
@@ -31,7 +31,8 @@ export default function SectionOne() {
             sx={{ justifyContent: { xs: "center", md: "end" } }}
           >
             <Grid
-              xs={7}
+              xs={12}
+              sm={8}
               md={5}
               sx={{
                 textAlign: { xs: "center", md: "start" },
@@ -40,7 +41,7 @@ export default function SectionOne() {
             >
               <Typography
                 variant="h2"
-                sx={{ maxWidth: 390, fontSize: { xs: 30, md: 50 } }}
+                sx={{ maxWidth: { md: 390 }, fontSize: { xs: 25, md: 50 } }}
               >
                 Finding Your Perfect Shoes
               </Typography>

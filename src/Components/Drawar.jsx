@@ -18,12 +18,12 @@ export default function Drawere({ showDrawar, setShowDrawar }) {
 
   const [isActive, setIsActive] = useState("");
   const linkNavbar = [
-    "home",
-    "about",
-    "shop",
-    "catalogue",
-    "new arrivals",
-    "contact",
+    { name: "home", nameRoute: "" },
+    { name: "about", nameRoute: "about" },
+    { name: "shop", nameRoute: "shop" },
+    { name: "catalogue", nameRoute: "catalogue" },
+    { name: "new arrivals", nameRoute: "new-arrivals" },
+    { name: "contact", nameRoute: "contact" },
   ];
 
   const { StyledLink } = useStyled();
@@ -40,13 +40,14 @@ export default function Drawere({ showDrawar, setShowDrawar }) {
           }}
         >
           <StyledLink
+            to={`/${link.nameRoute}`}
             margin="50px"
             onClick={() => setIsActive(index)}
             className={
               isActive === index ? "link-navbar active" : "link-navbar"
             }
           >
-            {link}
+            {link.name}
           </StyledLink>
         </Box>
       </li>

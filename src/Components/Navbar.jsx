@@ -21,6 +21,7 @@ export default function Navbar() {
   const IconPersonIcon = styled(Link)(({ theme }) => ({
     transition: ".3s all",
     color: theme.palette.secondary.main,
+    padding: "0 5px",
 
     "&:hover": {
       color: theme.palette.secondary.dark,
@@ -34,7 +35,10 @@ export default function Navbar() {
   // تحديد أسلوب CSS المخصص
 
   return (
-    <nav style={{ padding: "20px 0 0 0" }}>
+    <Box
+      component="nav"
+      sx={{ padding: { md: "40px 10px 0 10px", xs: "10px 10px" } }}
+    >
       <Container
         maxWidth="lg"
         style={{
@@ -82,8 +86,7 @@ export default function Navbar() {
             }}
           >
             <Box
-              style={{
-                width: "100px",
+              sx={{
                 display: "flex",
                 justifyContent: "space-between",
                 color: theme.palette.primary.mainIcone,
@@ -117,7 +120,7 @@ export default function Navbar() {
       </Container>
       <Divider sx={{ margin: "20px 0", display: { xs: "none" } }} />
       <Drawere setShowDrawar={setShowDrawar} showDrawar={showDrawar} />
-    </nav>
+    </Box>
   );
 }
 
@@ -131,7 +134,7 @@ export const Logo = ({ styleds }) => {
         <Typography
           variant="button"
           letterSpacing={4}
-          sx={{ color: theme.palette.primary.dark }}
+          sx={{ color: theme.palette.secondary.dark }}
           // eslint-disable-next-line no-undef
         >
           logo

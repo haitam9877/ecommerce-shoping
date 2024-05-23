@@ -14,6 +14,7 @@ import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
 
 export default function CustomSlider() {
+  const theme = useTheme();
   const [isLastSlide, setIsLastSlide] = React.useState(false);
   const [isFirstSlide, setIsFirstSlide] = React.useState(true);
 
@@ -92,28 +93,39 @@ export default function CustomSlider() {
         {/* يمكنك إضافة المزيد من الشرائح هنا */}
       </Swiper>
 
-      <Box sx={{ position: "relative", padding: "30px 0" }}>
+      <Box
+        sx={{
+          position: "relative",
+          padding: "30px 0",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Box
           sx={{
-            left: "40%",
+            marginRight: "20px",
+            position: "static",
+            color: theme.palette.secondary.dark,
+
             "&:after": {
               display: "none",
             },
           }}
           className={`swiper-button-prev ${isFirstSlide ? "transparent" : ""}`}
         >
-          <ArrowBackIcon />
+          <ArrowBackIcon color="black" />
         </Box>
         <Box
           sx={{
-            right: "40%",
+            position: "static",
+            color: theme.palette.secondary.dark,
             "&:after": {
               display: "none",
             },
           }}
           className={`swiper-button-next ${isLastSlide ? "transparent" : ""}`}
         >
-          <ArrowForwardIcon />
+          <ArrowForwardIcon color="black" />
         </Box>
       </Box>
     </div>

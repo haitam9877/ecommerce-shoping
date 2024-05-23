@@ -6,6 +6,8 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import { grey, indigo } from "@mui/material/colors";
 import { StyledProvider } from "./Contexts/StyledContext";
+import About from "./Pages/About";
+import BasicBreadcrumbs from "./Components/BasicBreadcrumbs";
 
 const theme = createTheme({
   typography: {
@@ -48,12 +50,13 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<h1>hhhhh</h1>} />
+          <Route path="/about" element={<About />} />
           <Route path="/shop" element={<h1>hhd</h1>} />
           <Route path="/catalogue" element={<h1>hhf</h1>} />
-          <Route path="/arrivals" element={<h1>hah</h1>} />
+          <Route path="/new-arrivals" element={<h1>hah</h1>} />
           <Route path="/contact" element={<h1>hfh</h1>} />
         </Routes>
+        <BasicBreadcrumbs />
         <Footer />
       </StyledProvider>
     </ThemeProvider>
