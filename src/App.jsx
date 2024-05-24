@@ -17,6 +17,10 @@ const theme = createTheme({
       letterSpacing: 2,
       fontFamily: "Noto_Sans",
     },
+    h5: {
+      fontWeight: "normal",
+      fontSize: 30,
+    },
     body1: {
       lineHeight: "2em",
       fontSize: 14,
@@ -48,6 +52,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <StyledProvider>
         <Navbar />
+        <BasicBreadcrumbs />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -56,7 +62,6 @@ function App() {
           <Route path="/new-arrivals" element={<h1>hah</h1>} />
           <Route path="/contact" element={<h1>hfh</h1>} />
         </Routes>
-        <BasicBreadcrumbs />
         <Footer />
       </StyledProvider>
     </ThemeProvider>

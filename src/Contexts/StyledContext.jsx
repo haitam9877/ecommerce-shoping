@@ -14,11 +14,12 @@ export const StyledProvider = ({ children }) => {
     color: theme.palette.primary.light,
   }));
 
-  const DividerPage = styled(Divider)(({ theme }) => ({
+  const DividerPage = styled(Divider)(({ theme, sx }) => ({
     background: theme.palette.primary.light,
     width: 43,
     padding: "1px 0",
     margin: "20px auto",
+    sx,
   }));
 
   // إنشاء المكون StyledButton باستخدام الثيم

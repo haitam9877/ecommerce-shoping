@@ -18,6 +18,12 @@
 
 @font-face {
   font-family: "Noto_Sans";
+  src: url("./fonts/Noto_Sans/NotoSans-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noto_Sans";
   src: url("./fonts/Noto_Sans/NotoSans-Light.ttf");
   font-weight: 100;
 }
