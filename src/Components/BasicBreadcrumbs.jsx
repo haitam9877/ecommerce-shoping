@@ -25,23 +25,25 @@ export default function BasicBreadcrumbs() {
 
   console.log(location);
 
-  return (
-    <Box
-      role="presentation"
-      onClick={handleClick}
-      sx={{ padding: "15px 0", background: theme.palette.boxLight }}
-    >
-      <Container maxWidth="lg">
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" to="/">
-            Home
-          </Link>
+  if (location.pathname !== "/") {
+    return (
+      <Box
+        role="presentation"
+        onClick={handleClick}
+        sx={{ padding: "15px 0", background: theme.palette.boxLight }}
+      >
+        <Container maxWidth="lg">
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link underline="hover" color="inherit" to="/">
+              Home
+            </Link>
 
-          <Typography color="text.primary" textTransform="capitalize">
-            {pathnames}
-          </Typography>
-        </Breadcrumbs>
-      </Container>
-    </Box>
-  );
+            <Typography color="text.primary" textTransform="capitalize">
+              {pathnames}
+            </Typography>
+          </Breadcrumbs>
+        </Container>
+      </Box>
+    );
+  }
 }

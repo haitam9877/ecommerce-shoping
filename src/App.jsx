@@ -53,10 +53,11 @@ function App() {
       <StyledProvider>
         <Navbar />
         <BasicBreadcrumbs />
-
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/about" element={<About />} />
+
           <Route path="/shop" element={<h1>hhd</h1>} />
           <Route path="/catalogue" element={<h1>hhf</h1>} />
           <Route path="/new-arrivals" element={<h1>hah</h1>} />

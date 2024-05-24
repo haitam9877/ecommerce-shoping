@@ -1,7 +1,7 @@
-import { Avatar, Box, Container, useTheme } from "@mui/material";
+import { Avatar, Box, Container } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+
 import Typography from "@mui/material/Typography";
 import { useStyled } from "../Contexts/StyledContext";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -53,7 +53,6 @@ export default function CardThem() {
 
 // eslint-disable-next-line react/prop-types
 const CardBox = ({ image, name, work, body }) => {
-  const theme = useTheme();
   return (
     <Grid md={3} sm={6} xs={12}>
       <Card
