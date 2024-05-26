@@ -359,7 +359,7 @@ const CustomBttoun = ({ name, menuItem }) => {
 const CardBox = ({ image, title, body, pris }) => {
   const theme = useTheme();
   return (
-    <Grid md={4} sm={6} xs={12}>
+    <Grid lg={4} sm={6} xs={12}>
       <Card
         sx={{
           boxShadow: theme.shadows[1],

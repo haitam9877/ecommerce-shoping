@@ -10,7 +10,7 @@ const Item = styled(Box)(({ theme }) => ({
 
 export default function Cataloge() {
   return (
-    <Container maxWidth="lg" sx={{ padding: "40px 0" }}>
+    <Container maxWidth="lg" sx={{ paddingBottom: 5, paddingTop: 5 }}>
       <Grid container spacing={2} sx={{ padding: { xs: "0", sm: "0 50px" } }}>
         <CardImage img="/men.jpg" title="Men" />
         <CardImage img="/children.jpg" title="Children" />

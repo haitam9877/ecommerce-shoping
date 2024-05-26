@@ -40,7 +40,7 @@ export default function Navbar() {
       sx={{ padding: { md: "40px 10px 0 10px", xs: "10px 10px" } }}
     >
       <Container
-        maxWidth="lg"
+        sx={{ maxWidth: "lg" }}
         style={{
           display: "flex",
           justifyContent: "center",

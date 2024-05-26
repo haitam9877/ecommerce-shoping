@@ -8,25 +8,27 @@ import { useStyled } from "../Contexts/StyledContext";
 
 export default function AboutShop() {
   return (
-    <Container maxWidth="lg" sx={{ padding: "40px 0" }}>
-      <Grid container spacing={2}>
-        <AboutCard
-          icon={<LocalShippingIcon />}
-          title="FREE SHIPPING"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-        />
-        <AboutCard
-          icon={<RefreshIcon />}
-          title="FREE RETURNS"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-        />
-        <AboutCard
-          icon={<QuestionMarkIcon />}
-          title="CUSTOMER SUPPORT"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-        />
-      </Grid>
-    </Container>
+    <Box>
+      <Container maxWidth="lg" sx={{ paddingBottom: 5, paddingTop: 5 }}>
+        <Grid container spacing={2}>
+          <AboutCard
+            icon={<LocalShippingIcon />}
+            title="FREE SHIPPING"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+          />
+          <AboutCard
+            icon={<RefreshIcon />}
+            title="FREE RETURNS"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+          />
+          <AboutCard
+            icon={<QuestionMarkIcon />}
+            title="CUSTOMER SUPPORT"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+          />
+        </Grid>
+      </Container>
+    </Box>
   );
 }
 
@@ -36,7 +38,7 @@ const AboutCard = ({ icon, title, body }) => {
   const { Item } = useStyled();
 
   return (
-    <Grid lg={4} md={6}>
+    <Grid md={4} sm={6} xs={12}>
       <Item>
         <Box sx={{ display: "flex" }}>
           <Box
