@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
-import { Typography, Box, styled } from "@mui/material";
+import { Typography, Box, styled, Badge } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import Divider from "@mui/material/Divider";
@@ -99,9 +99,13 @@ export default function Navbar() {
               <IconPersonIcon to="/about">
                 <FavoriteBorderIcon />
               </IconPersonIcon>
-              <IconPersonIcon to="/about">
-                <ShoppingCartIcon />
+
+              <IconPersonIcon>
+                <Badge color="primary" badgeContent={0} showZero>
+                  <ShoppingCartIcon />
+                </Badge>
               </IconPersonIcon>
+
               <IconPersonIcon
                 sx={{
                   display: { xs: "block", md: "none" },

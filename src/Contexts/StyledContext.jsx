@@ -8,10 +8,12 @@ const StyledContext = createContext();
 // إنشاء موفر الـ Context
 // eslint-disable-next-line react/prop-types
 export const StyledProvider = ({ children }) => {
-  const Item = styled(Box)(({ theme }) => ({
+  const Item = styled(Box)(({ theme, sx }) => ({
     padding: theme.spacing(1),
     display: "flex",
     color: theme.palette.primary.light,
+
+    sx,
   }));
 
   const DividerPage = styled(Divider)(({ theme, sx }) => ({

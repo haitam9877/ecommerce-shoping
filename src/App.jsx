@@ -8,6 +8,7 @@ import { grey, indigo } from "@mui/material/colors";
 import { StyledProvider } from "./Contexts/StyledContext";
 import About from "./Pages/About";
 import BasicBreadcrumbs from "./Components/BasicBreadcrumbs";
+import Shop from "./Pages/Shop";
 
 const theme = createTheme({
   typography: {
@@ -41,7 +42,7 @@ const theme = createTheme({
     },
     secondary: {
       main: grey[500],
-      dark: grey[700],
+      dark: grey[900],
     },
     boxLight: "#f8f9fa",
   },
@@ -58,7 +59,7 @@ function App() {
 
           <Route path="/about" element={<About />} />
 
-          <Route path="/shop" element={<h1>hhd</h1>} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/catalogue" element={<h1>hhf</h1>} />
           <Route path="/new-arrivals" element={<h1>hah</h1>} />
           <Route path="/contact" element={<h1>hfh</h1>} />
