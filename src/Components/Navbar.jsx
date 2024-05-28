@@ -12,16 +12,16 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
 import Drawere from "./Drawar";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 export default function Navbar() {
-  const theme = useTheme();
-
   const [showDrawar, setShowDrawar] = useState(false);
 
   const IconPersonIcon = styled(Link)(({ theme }) => ({
     transition: ".3s all",
     color: theme.palette.secondary.main,
     padding: "0 5px",
+    display: "inline-flex",
 
     "&:hover": {
       color: theme.palette.secondary.dark,
@@ -35,96 +35,68 @@ export default function Navbar() {
   // تحديد أسلوب CSS المخصص
 
   return (
-    <Box
-      component="nav"
-      sx={{ padding: { md: "40px 10px 0 10px", xs: "10px 10px" } }}
-    >
+    <>
       <Container
-        sx={{ maxWidth: "lg" }}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-        }}
+        component="nav"
+        sx={{ maxWidth: "lg", marginTop: 4, marginBottom: 4 }}
       >
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexWrap: { xs: "wrap", md: "nowrap" },
-            alignItems: "center",
-          }}
-        >
-          <Box
-            className="seach"
-            sx={{
-              display: "flex",
-              flex: { xs: "0 1 50%", md: "0 1 50%" },
-              order: { xs: 2, md: 1 },
-            }}
-          >
-            <SearchIcon />
-            <input type="text" placeholder="Search" style={{ width: "100%" }} />
-          </Box>
-
-          <Logo
-            styleds={{
-              display: "flex",
-              flex: { xs: "1 0 100%", md: "0 1 50%" },
-              order: { xs: 1, md: 2 },
-              marginBottom: { xs: 3 },
-            }}
-          />
-
-          <Box
-            className="add"
-            sx={{
-              display: "flex",
-              flex: { xs: "0 1 50%", md: "0 1 50%" },
-              justifyContent: "end",
-              order: { xs: 3, md: 3 },
-            }}
-          >
+        <Grid container alignItems="center">
+          <Grid md={4} xs={6} sx={{ order: { md: 1, xs: 2 } }}>
             <Box
+              className="seach"
               sx={{
                 display: "flex",
-                justifyContent: "space-between",
-                color: theme.palette.primary.mainIcone,
               }}
             >
-              <IconPersonIcon to="/about">
-                <PersonIcon />
-              </IconPersonIcon>
-
-              <IconPersonIcon to="/about">
-                <FavoriteBorderIcon />
-              </IconPersonIcon>
-
-              <IconPersonIcon>
-                <Badge color="primary" badgeContent={0} showZero>
-                  <ShoppingCartIcon />
-                </Badge>
-              </IconPersonIcon>
-
-              <IconPersonIcon
-                sx={{
-                  display: { xs: "block", md: "none" },
-                  marginLeft: "20px",
-                }}
-              >
-                <MenuIcon
-                  onClick={() => {
-                    setShowDrawar(true);
-                  }}
-                />
-              </IconPersonIcon>
+              <SearchIcon />
+              <input
+                type="text"
+                placeholder="Search"
+                style={{ width: "100%" }}
+              />
             </Box>
-          </Box>
-        </Box>
+          </Grid>
+          <Grid
+            textAlign="center"
+            md={4}
+            xs={12}
+            sx={{ order: { md: 2, xs: 1 }, marginBottom: { xs: 4, md: 0 } }}
+          >
+            <Logo />
+          </Grid>
+          <Grid textAlign="end" md={4} xs={6} sx={{ order: { xs: 3 } }}>
+            <IconPersonIcon to="/about">
+              <PersonIcon />
+            </IconPersonIcon>
+
+            <IconPersonIcon to="/about">
+              <FavoriteBorderIcon />
+            </IconPersonIcon>
+
+            <IconPersonIcon>
+              <Badge color="primary" badgeContent={0} showZero>
+                <ShoppingCartIcon />
+              </Badge>
+            </IconPersonIcon>
+
+            <IconPersonIcon
+              sx={{
+                display: { xs: "inline-flex", md: "none" },
+                marginLeft: "20px",
+              }}
+            >
+              <MenuIcon
+                onClick={() => {
+                  setShowDrawar(true);
+                }}
+              />
+            </IconPersonIcon>
+          </Grid>
+        </Grid>
       </Container>
       <Divider sx={{ margin: "20px 0", display: { xs: "none" } }} />
       <Drawere setShowDrawar={setShowDrawar} showDrawar={showDrawar} />
-    </Box>
+    </>
   );
 }
 

@@ -1,8 +1,9 @@
-import { Box, Container, Hidden, List } from "@mui/material";
+import { Container, Hidden, List, ListItem, useTheme } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import { useState } from "react";
 import { Logo } from "./Navbar";
 import { useStyled } from "../Contexts/StyledContext";
+import { useLocation } from "react-router-dom";
 
 const drawerWidth = 280;
 
@@ -16,53 +17,46 @@ export default function Drawere({ showDrawar, setShowDrawar }) {
     setShowDrawar(false);
   };
 
-  const [isActive, setIsActive] = useState("");
-  const linkNavbar = [
-    { name: "home", nameRoute: "" },
-    { name: "about", nameRoute: "about" },
-    { name: "shop", nameRoute: "shop" },
-    { name: "catalogue", nameRoute: "catalogue" },
-    { name: "new arrivals", nameRoute: "new-arrivals" },
-    { name: "contact", nameRoute: "contact" },
-  ];
-
   const { StyledLink } = useStyled();
 
-  const listLinkNavbar = linkNavbar.map((link, index) => {
+  const { pathname } = useLocation();
+
+  const theme = useTheme();
+
+  const listLinkNavbar = [
+    { label: "home", path: "/" },
+    { label: "about", path: "/about" },
+    { label: "shop", path: "/shop" },
+    { label: "catalogue", path: "/catalogue" },
+    { label: "new arrivals", path: "/new-arrivals" },
+    { label: "contact", path: "/contact" },
+  ].map((link) => {
     return (
-      <li key={index}>
-        <Box
+      <ListItem
+        sx={{
+          display: { md: "inline-block", xs: "block" },
+          width: "auto",
+          textTransform: { md: "uppercase", xs: "capitalize" },
+        }}
+        key={link.path}
+      >
+        <StyledLink
+          to={`${link.path}`}
           sx={{
-            margin: { xs: "0", md: "0 10px" },
-            textTransform: { xs: "capitalize", md: "uppercase" },
-            fontSize: { xs: "20px", md: "15px" },
-            lineHeight: { xs: "3em" },
+            color:
+              pathname === link.path
+                ? theme.palette.primary.light
+                : theme.palette.secondary.dark,
           }}
         >
-          <StyledLink
-            to={`/${link.nameRoute}`}
-            margin="50px"
-            onClick={() => setIsActive(index)}
-            className={
-              isActive === index ? "link-navbar active" : "link-navbar"
-            }
-          >
-            {link.name}
-          </StyledLink>
-        </Box>
-      </li>
+          {link.label}
+        </StyledLink>
+      </ListItem>
     );
   });
 
   return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-      }}
-    >
+    <Container maxWidth="lg">
       <Hidden smUp implementation="css">
         <Drawer
           anchor="right"
@@ -89,9 +83,7 @@ export default function Drawere({ showDrawar, setShowDrawar }) {
       </Hidden>
 
       <Hidden mdDown implementation="css">
-        <Box>
-          <List sx={{ display: "flex" }}> {listLinkNavbar}</List>
-        </Box>
+        <List sx={{ textAlign: "center" }}> {listLinkNavbar}</List>
       </Hidden>
     </Container>
   );

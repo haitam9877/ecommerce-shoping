@@ -11,7 +11,7 @@ const Item = styled(Box)(({ theme }) => ({
 export default function Cataloge() {
   return (
     <Container maxWidth="lg" sx={{ paddingBottom: 5, paddingTop: 5 }}>
-      <Grid container spacing={2} sx={{ padding: { xs: "0", sm: "0 50px" } }}>
+      <Grid container spacing={2}>
         <CardImage img="/men.jpg" title="Men" />
         <CardImage img="/children.jpg" title="Children" />
         <CardImage img="/women.jpg" title="Women" />
@@ -23,7 +23,7 @@ export default function Cataloge() {
 const CardImage = ({ img, title }) => {
   const theme = useTheme();
   return (
-    <Grid lg={4} sm={6} md={6}>
+    <Grid md={4} sm={6} xs={12}>
       <Item>
         <Box
           sx={{

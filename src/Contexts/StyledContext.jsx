@@ -42,20 +42,18 @@ export const StyledProvider = ({ children }) => {
   }));
 
   // إنشاء المكون StyledLink باستخدام الثيم
-  const StyledLink = styled(Link)(({ theme, style, to }) => ({
+  const StyledLink = styled(Link)(({ theme, to, sx }) => ({
     fontFamily: theme.typography.fontFamily[1],
     transition: "0.3s all",
-    color: theme.palette.secondary.dark,
+
     textDecoration: "none",
 
     "&:hover": {
       color: theme.palette.primary.light,
     },
-    "&.active": {
-      color: theme.palette.primary.light,
-    },
-    style,
+
     to,
+    sx,
   }));
 
   return (

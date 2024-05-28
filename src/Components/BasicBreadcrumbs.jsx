@@ -23,8 +23,6 @@ export default function BasicBreadcrumbs() {
 
   const pathnames = location.pathname.split("/").filter((x) => x);
 
-  console.log(location);
-
   if (location.pathname !== "/") {
     return (
       <Box

@@ -36,11 +36,11 @@ export default function CustomSlider() {
         }}
         onSlideChange={(swiper) => handleSlideChange(swiper)}
         breakpoints={{
-          1040: {
+          1200: {
             slidesPerView: 3,
             spaceBetween: 30,
           },
-          800: {
+          600: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
